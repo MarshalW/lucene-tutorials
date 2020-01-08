@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.apache.lucene', name: 'lucene-core', version: '8.4.0'
+    compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '8.4.0'
+    compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '8.4.0'
+    compile("com.janeluo:ikanalyzer:2012_u6") {
+        exclude group: 'org.apache.lucene', module: 'lucene-queryparser'
+        exclude group: 'org.apache.lucene', module: 'lucene-core'
+    }
+
+}
